@@ -5,9 +5,9 @@ import (
 	"github.com/KevinZonda/GoX/pkg/iox"
 )
 
-var cfg *ConfigModel
+var cfg *Model
 
-func Get() *ConfigModel {
+func Get() *Model {
 	return cfg
 }
 
@@ -16,7 +16,7 @@ func Load() {
 	if err != nil {
 		panic(err)
 	}
-	cfg = &ConfigModel{}
+	cfg = &Model{}
 	err = json.Unmarshal(bs, cfg)
 	if err != nil {
 		panic(err)

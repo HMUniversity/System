@@ -9,30 +9,26 @@ import (
 
 func isAlumni(ctx *fiber.Ctx) error {
 	var req alumni_mod.IsAlumniRequest
-	if err := ctx.JSON(&req); err != nil {
+	if err := ctx.BodyParser(&req); err != nil {
 		err_handler.HandleError(err)
-		ctx.Status(fiber.StatusBadRequest).JSON(alumni_mod.IsAlumniResponse{
+		return ctx.Status(fiber.StatusBadRequest).JSON(alumni_mod.IsAlumniResponse{
 			Message: "Cannot load request",
 		})
-		return nil
 	}
 
 	if req.Username == "" {
-		ctx.Status(fiber.StatusBadRequest).JSON(alumni_mod.IsAlumniResponse{
+		return ctx.Status(fiber.StatusBadRequest).JSON(alumni_mod.IsAlumniResponse{
 			Message: "Username is required",
 		})
-		return nil
 	}
 
 	isAlumniVal, err := config.Get().GitHub.IsInOrg(config.Get().Organisation, req.Username)
 	if err != nil {
-		ctx.Status(fiber.StatusInternalServerError).JSON(alumni_mod.IsAlumniResponse{
+		return ctx.Status(fiber.StatusInternalServerError).JSON(alumni_mod.IsAlumniResponse{
 			Message: err.Error(),
 		})
-		return nil
 	}
-	ctx.Status(fiber.StatusOK).JSON(alumni_mod.IsAlumniResponse{
+	return ctx.Status(fiber.StatusOK).JSON(alumni_mod.IsAlumniResponse{
 		IsAlumni: isAlumniVal,
 	})
-	return nil
 }

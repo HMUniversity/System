@@ -10,20 +10,18 @@ import (
 
 func join(ctx *fiber.Ctx) error {
 	var req member_mod.JoinRequest
-	if err := ctx.JSON(&req); err != nil {
+	if err := ctx.BodyParser(&req); err != nil {
 		err_handler.HandleError(err)
-		ctx.Status(fiber.StatusBadRequest).JSON(member_mod.JoinResponse{
+		return ctx.Status(fiber.StatusBadRequest).JSON(member_mod.JoinResponse{
 			Message: "Cannot load request",
 		})
-		return nil
 	}
 	user := utils.DeRefString(req.Username)
 	email := utils.DeRefString(req.Email)
 	if user == "" && email == "" {
-		ctx.Status(fiber.StatusBadRequest).JSON(member_mod.JoinResponse{
+		return ctx.Status(fiber.StatusBadRequest).JSON(member_mod.JoinResponse{
 			Message: "Username or email is required",
 		})
-		return nil
 	}
 	var err error
 	if user != "" {
@@ -32,13 +30,11 @@ func join(ctx *fiber.Ctx) error {
 		err = config.Get().GitHub.InviteByEmail(email, config.Get().Organisation)
 	}
 	if err != nil {
-		ctx.Status(fiber.StatusInternalServerError).JSON(member_mod.JoinResponse{
+		return ctx.Status(fiber.StatusInternalServerError).JSON(member_mod.JoinResponse{
 			Message: err.Error(),
 		})
-		return nil
 	}
-	ctx.Status(fiber.StatusOK).JSON(member_mod.JoinResponse{
+	return ctx.Status(fiber.StatusOK).JSON(member_mod.JoinResponse{
 		Message: "Invitation sent",
 	})
-	return nil
 }
