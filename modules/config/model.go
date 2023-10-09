@@ -8,4 +8,6 @@ type Model struct {
 	GitHub       github.Instance `json:"github"`
 	APIKeys      []string        `json:"api_keys"`
 	Organisation string          `json:"org"`
+
+	CertTemplate string `json:"cert_template"`
 }

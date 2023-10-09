@@ -1,5 +1,7 @@
 github.com/KevinZonda/GoX v0.0.15 h1:u+G41/srg8c6bmI6Oqw9iBwYiSQk9FKp9fv/YBZadFk=
 github.com/KevinZonda/GoX v0.0.15/go.mod h1:WHV3YUyG+ou3wuUgwO4SRhMiKxLTVK5inajmtR1MUXo=
+github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.1 h1:Jjo2fL1ByctCHRP99RGohe7ESvupcbRO/2E8Ps3ZcSw=
+github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.1/go.mod h1:SQq4xfIdvf6WYKSDxAJc+xOJdolt+/bc1jnQKMtPMvQ=
 github.com/andybalholm/brotli v1.0.5 h1:8uQZIdzKmjc/iuPu7O2ioW48L81FgatrcpfFmiq/cCs=
 github.com/andybalholm/brotli v1.0.5/go.mod h1:fO7iG3H7G2nSZ7m0zPUDn85XEX2GTukHGRSepvi9Eig=
 github.com/gofiber/fiber/v2 v2.49.2 h1:ONEN3/Vc+dUCxxDgZZwpqvhISgHqb+bu+isBiEyKEQs=

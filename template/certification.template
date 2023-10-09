@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+
+    <style>
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14pt;
+            margin: auto;
+            padding: 0 10%;
+            max-width: 100vh;
+            justify-content: center;
+        }
+
+        body>* {
+            margin: 1em 0;
+        }
+
+        img {
+            object-fit: contain;
+        }
+
+        footer {
+            margin-top: 2em;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        .mention {
+            font-size: 18pt;
+        }
+
+        content {
+            text-align: center;
+        }
+
+        .logo {
+            width: 30%;
+            max-width: 180px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div style="height: 50px; width: 100vw;"> </div>
+
+    <center>
+        <img class="logo" src="https://hmu.ac.cn/static/picture/logo-dark.png"></img>
+    </center>
+
+    <div style="height: 150px; width: 100vw;"> </div>
+
+
+    <content>
+        <p>
+            It is hereby certified that
+        </p>
+        <p class="mention">
+            {{ .Receiver }}
+        </p>
+
+        <p>
+            Was admitted to the Degree of
+        </p>
+        <p class="mention">
+            {{ .Degree }} in {{ .Programme }}
+        </p>
+        <p style="font-style:italic;">
+            with First Class Honours
+        </p>
+        <p>
+            on the {{ .Date }}
+        </p>
+    </content>
+
+    <div style="height: 350px; width: 100vw;"> </div>
+
+    <div style="width: 100wv;">
+
+        <table style="width:100%; border: 5px;">
+            <tr>
+                <th style="text-align: left; width:50%">
+                    <img style="height: 50px; margin-left: 0;"
+                        src="https://github.com/HMUniversity/Certification.HTML/blob/79cbd8c034263affabeb1a40b367e30730caa3af/assets/imgs/kv.png?raw=true" />
+                </th>
+                <th style="text-align: right; width:50%;">
+                    <img style="height: 50px;"
+                        src="https://github.com/HMUniversity/Certification.HTML/blob/79cbd8c034263affabeb1a40b367e30730caa3af/assets/imgs/ak.png?raw=true" />
+                </th>
+            </tr>
+            <tr>
+                <td style="text-align: left; width:50%">
+                    <p>
+                        VICE-CHANCELLOR AND PRINCIPAL
+                    </p>
+                </td>
+                <td style="text-align: right; width:50%;">
+                    <p>
+                        REGISTRAR AND SECRETARY
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+    <footer>
+        Home University, Birmingham, West Midlands, United Kingdom
+    </footer>
+</body>
+
+</html>
