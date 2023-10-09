@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"github.com/HMUniversity/System/modules/config"
+)
 
 func main() {
-	fmt.Println("Hi")
+	config.Load()
+	config.Get().GitHub.Init()
 }
