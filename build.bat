@@ -1,0 +1,1 @@
+go build -o ./out/hmusystem.exe -v ./main/main.go
