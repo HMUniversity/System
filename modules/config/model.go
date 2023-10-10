@@ -10,4 +10,5 @@ type Model struct {
 	Organisation string          `json:"org"`
 
 	CertTemplate string `json:"cert_template"`
+	CertOutput   string `json:"cert_output"`
 }

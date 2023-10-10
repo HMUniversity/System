@@ -2,10 +2,14 @@ package certification
 
 import (
 	"github.com/HMUniversity/System/models/certification_mod"
+	"github.com/HMUniversity/System/modules/config"
 	"github.com/HMUniversity/System/modules/err_handler"
 	"github.com/HMUniversity/System/modules/pdf_gen"
 	"github.com/HMUniversity/System/utils"
 	"github.com/gofiber/fiber/v2"
+	"github.com/google/uuid"
+	"path"
+	"strings"
 	"time"
 )
 
@@ -14,7 +18,8 @@ func getCurrentDate() string {
 }
 
 func getRandomPath() string {
-	return ""
+	return path.Join(config.Get().CertOutput,
+		strings.Replace(uuid.New().String(), "-", "", -1)+".pdf")
 }
 
 func generate(ctx *fiber.Ctx) error {
