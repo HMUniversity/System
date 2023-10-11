@@ -4,6 +4,7 @@ import (
 	"github.com/HMUniversity/System/controllers"
 	"github.com/HMUniversity/System/modules/config"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
 func main() {
@@ -15,6 +16,7 @@ func main() {
 		ServerHeader:  "HMU Web Service",
 		AppName:       "HMU Core System",
 	})
+	app.Use(logger.New())
 	controllers.RegisterControllers(app)
 	err := app.Listen(config.Get().ListenAddr)
 	if err != nil {

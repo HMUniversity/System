@@ -14,7 +14,7 @@ import (
 )
 
 func getCurrentDate() string {
-	return time.Now().Format("31/12/2006")
+	return time.Now().Format("02/01/2006")
 }
 
 func getRandomPath() string {
